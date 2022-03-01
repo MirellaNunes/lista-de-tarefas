@@ -1,29 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Tarefas</title>
+	<style>style>
+		.content{
+			max-width: 400px;
+			max-height: 600px;
+			margin: auto;
+			background: grey;
+			height: 333px;
+			padding: 2%;
+			border:1px solid;
+            border-radius: 12px;
 
-    <head>
-    <title> Lista de Tarefas</title>
-    </head>
-    <body>
-        <h1>Tarefas</h1>
-        <ul>
-            <li> Estudar</li>
-            <li>Alguma coisa</li>
-        </ul>
-        <input type="text">
-        <button onclick="add()">Adicionar</button>
-        <script>
-            function add(){
-                const ul = document.querySelector ("ul")
-                const input = document.querySelector("input")
-                const tarefa = input.value
-                
-                const li = document.createElement ("li")
-                li.innerText = tarefa
-                ul.appendChild (li)
+		}
+		.content h1{
+			text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-                input.value = ""
-            }
-        </script>
-    </body>
+		}
+		input[type=text]{
+			width: 93%;
+			height: 30px;
+			margin-bottom: 1px;
+            border-radius: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+		input[type=button]{
+			border: none;
+			width: 70;
+			float: right;
+			height: 35px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border-radius: 12px;
+		}
+		button:hover, input[type=button]:hover{
+			background: #ccc;
+
+		}
+
+		button, input[type=button]{ cursor: pointer; }
+
+		button{
+			float: right;
+			width: 68px;
+			padding: 1px;
+            
+            border-radius: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+
+		}
+		ul{
+			list-style-type: none;
+			padding: 10px;
+			height: 150px;
+			background: rgb(159, 163, 163);
+			overflow-y: auto;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 3px 3px rgb(100, 99, 99);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+		}
+		li{
+			height: 19px;
+			margin: 15px 0 15px 0;
+			border-bottom: 2px solid;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+
+
+		}
+
+
+	</style></style>
+</head>
+<body>
+	<body style="background-color: rgba(53, 54, 54, 0.61);">
+		<div class='content'>
+	
+	
+			<div class="row">
+	
+					<div class="col-12">
+						<h1> Lista de Tarefas </h1>
+						<form>
+	
+							<input type="text" name="task" id='task' placeholder="Tarefa" />
+							<input type="button" name="" 
+									onclick="addTask();" 
+									value="add tarefa"/> 
+							<button onclick="apagar">apagar tudo</button>
+	
+						</form>
+	
+					</div>
+	
+			</div>
+		<div>
+	
+						<label> Suas Tarefas</label>
+						<ul id="myList">	
+	
+						</ul>
+	
+					</div>
+	
+	
+	
+	
+	</div>
+	
+	
+	<script type="text/javascript">
+	
+	var ul = document.getElementById("myList");
+	var li;
+	var itemId;
+	var item;
+	addTask	= function (){
+	
+		if(document.getElementById("task").value != ""){
+	
+			item   = document.getElementById("task");
+	
+			itemId = ul.childElementCount;
+	
+			li 	   = createItemEl(item.value,itemId);
+			li.appendChild(createRemoveTaskBtn(itemId));
+			ul.appendChild(li);
+			item.value = "";
+		}
+	
+	}
+	
+	removeTask = function( itemId ){
+	
+		for( i = 0 ; i < ul.children.length ; i++){
+	
+			if(ul.children[i].getAttribute("index") == itemId ){
+	
+				ul.children[i].remove();
+	
+			}
+		}
+	}
+	
+	createItemEl = function(itemValue, itemId){
+	
+		let li = document.createElement("li");
+	
+		li.setAttribute("index", itemId);
+	
+		li.appendChild(document.createTextNode(itemValue));
+	
+		return li;
+	}
+	
+	createRemoveTaskBtn = function(itemId){
+		let btn =  document.createElement("button");
+		btn.setAttribute("onclick", "removeTask("+itemId+")"); 
+		btn.innerHTML ="X";
+		return btn;
+	}
+	function apagar(){
+		mylist.innerHTML = null
+	}
+	
+	
+
+	
+	</script>
+</body>
 </html>
