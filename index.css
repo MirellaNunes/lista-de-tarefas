@@ -33,7 +33,7 @@
 		}
 		button:hover, input[type=button]:hover{
 			background: rgb(190, 186, 186);
-            text-decoration: double aqua;
+            font: 15px;
 
 		}
 
