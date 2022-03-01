@@ -1,0 +1,75 @@
+
+		.content{
+			max-width: 400px;
+			max-height: 600px;
+			margin: auto;
+			background: rgba(80, 79, 80, 0.452);
+			height: 322px;
+			padding: 2%;
+			border:1px solid;
+            border-radius: 12px;
+            box-shadow: 2px 2px rgb(102, 101, 101);
+
+		}
+		.content h1{
+			text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+		}
+		input[type=text]{
+			width: 93%;
+			height: 25px;
+			margin-bottom: 2px;
+            border-radius: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+		input[type=button]{
+			border: none;
+			width: 70;
+			float: right;
+			height: 35px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border-radius: 12px;
+		}
+		button:hover, input[type=button]:hover{
+			background: rgb(190, 186, 186);
+            text-decoration: double aqua;
+
+		}
+
+		button, input[type=button]{ cursor: pointer; }
+
+		button{
+			float: right;
+			width: 68px;
+			padding: 1px;
+            
+            border-radius: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+
+		}
+		ul{
+			list-style-type: none;
+			padding: 10px;
+			height: 150px;
+			background: rgb(159, 163, 163);
+			overflow-y: auto;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 3px 3px rgb(100, 99, 99);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+		}
+		li{
+			height: 19px;
+			margin: 15px 0 15px 0;
+			border-bottom: 2px solid;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+
+
+		}
+
+
+	

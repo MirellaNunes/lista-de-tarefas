@@ -5,82 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lista de Tarefas</title>
-	<style>style>
-		.content{
-			max-width: 400px;
-			max-height: 600px;
-			margin: auto;
-			background: grey;
-			height: 333px;
-			padding: 2%;
-			border:1px solid;
-            border-radius: 12px;
-
-		}
-		.content h1{
-			text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-		}
-		input[type=text]{
-			width: 93%;
-			height: 30px;
-			margin-bottom: 1px;
-            border-radius: 12px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-		}
-		input[type=button]{
-			border: none;
-			width: 70;
-			float: right;
-			height: 35px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            border-radius: 12px;
-		}
-		button:hover, input[type=button]:hover{
-			background: #ccc;
-
-		}
-
-		button, input[type=button]{ cursor: pointer; }
-
-		button{
-			float: right;
-			width: 68px;
-			padding: 1px;
-            
-            border-radius: 12px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            
-
-		}
-		ul{
-			list-style-type: none;
-			padding: 10px;
-			height: 150px;
-			background: rgb(159, 163, 163);
-			overflow-y: auto;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 3px 3px rgb(100, 99, 99);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            
-		}
-		li{
-			height: 19px;
-			margin: 15px 0 15px 0;
-			border-bottom: 2px solid;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            
-
-
-		}
-
-
-	</style></style>
+	<link rel="stylesheet" href="index.css">
+	<link rel="icon" href="download.png">
 </head>
 <body>
-	<body style="background-color: rgba(53, 54, 54, 0.61);">
+	<body style="background-color: rgba(63, 75, 75, 0.685);">
 		<div class='content'>
 	
 	
@@ -91,10 +20,10 @@
 						<form>
 	
 							<input type="text" name="task" id='task' placeholder="Tarefa" />
-							<input type="button" name="" 
+							<input type="button" name="button" 
 									onclick="addTask();" 
-									value="add tarefa"/> 
-							<button onclick="apagar">apagar tudo</button>
+									value="Add tarefa"/> 
+							<button onclick="apagar">Apagar tudo</button>
 	
 						</form>
 	
@@ -129,6 +58,7 @@
 			item   = document.getElementById("task");
 	
 			itemId = ul.childElementCount;
+			
 	
 			li 	   = createItemEl(item.value,itemId);
 			li.appendChild(createRemoveTaskBtn(itemId));
@@ -145,6 +75,7 @@
 			if(ul.children[i].getAttribute("index") == itemId ){
 	
 				ul.children[i].remove();
+				console.log(removeTask);
 	
 			}
 		}
@@ -160,11 +91,11 @@
 	
 		return li;
 	}
-	
 	createRemoveTaskBtn = function(itemId){
 		let btn =  document.createElement("button");
 		btn.setAttribute("onclick", "removeTask("+itemId+")"); 
-		btn.innerHTML ="X";
+		
+		btn.innerHTML = "&#128465";
 		return btn;
 	}
 	function apagar(){
